@@ -1,0 +1,404 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% static "images" as baseUrl %}
+
+{% block content %}
+
+
+
+<!-- ################################################## PRELOADER START ###########################################-->
+<!-- ################################################## PRELOADER START ###########################################-->    
+
+<div id="preloader">
+  <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</div>  
+
+<!-- ################################################ PRELOADER END HERE #########################################-->
+<!-- ################################################ PRELOADER END HERE #########################################-->
+
+
+
+
+<!-- ################################################ HEADER START HERE ##########################################-->
+<!-- ################################################ HEADER START HERE ##########################################-->    
+
+<header class="">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html"><h2>Bismark <em>Hotel</em></h2></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li> 
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rooms' %}">Book Rooms</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+
+            {% if user.is_authenticated %}
+            
+            {% if user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{user.first_name}}</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users' %}">Dashboard</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{user.first_name}}</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            {% endif %}
+
+            {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+
+            {% endif %}
+
+          </ul>
+        </div>
+
+
+    </div>
+  </nav>
+</header>
+
+<!-- ################################################### HEADER END HERE ######################################-->
+<!-- ################################################### HEADER END HERE ######################################-->
+
+
+<!-- ################################################### BANNER START HERE ###########################################################-->
+<!-- ################################################### BANNER START HERE ###########################################################-->    
+
+<div class="banner header-text">
+  <div class="owl-banner owl-carousel">
+
+
+    <div class="banner-item-01">
+      <div class="text-content">
+        <h4>chill without the chill</h4>
+        <h4>book now</h4>
+        <h2>own your place in the sun</h2>
+      </div>
+    </div>
+
+
+    <div class="banner-item-02">
+      <div class="text-content">
+        <h4>Book Now</h4>
+        <h2>Best &amp; Affordable Rooms Are Here For You!!!</h2>
+      </div>
+    </div>
+
+
+    <div class="banner-item-03">
+      <div class="text-content">
+        <h4>Meeting Rooms</h4>
+        <h2>Well equiped rooms for business programs</h2>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- ################################################ BANNER ENDS HERE #################################################################-->
+<!-- ################################################ BANNER ENDS HERE #################################################################-->    
+
+
+
+
+
+<!-- ####################################################### ROOMS START HERE ############################################################-->
+<!-- ####################################################### ROOMS START HERE ############################################################-->
+
+<div class="latest-products">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Awesome Rooms</h2>
+          <a href="{% url 'rooms' %}">view all rooms <i class="fa fa-angle-right"></i></a>
+        </div>
+      </div>
+
+      {% for room in rooms %}
+
+
+      <div class="col-md-4">
+        <div class="product-item">
+          <a href="#"><img src="{{room.image.url}}" alt=""></a>
+          <div class="down-content">
+            <a href="#"><h4>{{room.room_type}}</h4></a>
+            <h6>Usd. {{room.price}}</h6>
+            <p>{{room.description}}</p> 
+            <span><button type="submit" class="btn" style="width: 100%;"><a href="{% url 'bookroom/{{room.id}}' %}"> Book</a></button></span>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+<!-- ################################################### ROOMS END HERE ##############################################################-->
+<!-- ################################################### ROOMS END HERE ##############################################################-->
+
+
+
+
+
+
+<!-- ################################################ FLOATING IMAGES START #############################################################-->
+<!-- ################################################ FLOATING IMAGES START #############################################################-->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="padding: 30px;">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+  <img src="{% static 'photos/carousel_01.jpg' %}" class="d-block w-100" style="height: 500px;" alt="">
+</div>
+
+<div class="carousel-item">
+  <img src="{% static 'photos/carousel_02.jpg' %}" class="d-block w-100" style="height: 500px;" alt="">
+</div>
+
+<div class="carousel-item">
+  <img src="{% static 'photos/carousel_03.jpg' %}" class="d-block w-100" style="height: 500px;" alt="">
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+
+<button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+
+</div>
+  
+
+
+<!-- ####################################################### FLOATING IMAGES STOP ########################################################-->
+<!-- ####################################################### FLOATING IMAGES STOP ########################################################-->
+
+
+
+
+
+
+
+
+<!-- ################################################### ABOUT START HERE ##############################################################-->
+<!-- ################################################### ABOUT START HERE ##############################################################-->
+
+<div class="best-features">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>About Hotel Booking</h2>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="right-image">
+          <img src="{% static 'photos/about.jpg' %}" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="left-content">
+          <h4>Looking for the best rooms?</h4>
+          <p>Hotel Booking is here to give you the best rooms for your comfort. Comfortable rooms for your business discussion and your vacation is well catered for by us. Just book and live your dream</p>
+          <ul class="featured-list">
+            <li><a href="#">Contact us for more info</a></li>
+            <li><a href="#">Book online</a></li>
+            <li><a href="#">Discounts available</a></li>
+            <li><a href="#">Means of payments</a></li>
+          </ul>
+          <a href="about.html" class="filled-button">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="call-to-action">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="inner-content">
+          <div class="row">
+            <div class="col-md-8">
+              <h4>Offers &amp; Discounts <em>for all</em> room sizes</h4>
+              <p>We have very good offers and discounts for our loyal customers.</p>
+            </div>
+            <div class="col-md-4">
+              <a href="rooms.html" class="filled-button">Book Now</a> 
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ################################################### ABOUT END HERE ##############################################################-->
+<!-- ################################################### ABOUT END HERE ##############################################################-->
+
+
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear" > 
+  
+  
+  
+  <div class="one_quarter first">
+    <h6 class="heading">Address</h6>
+    <ul class="nospace linklist contact btmspace-30">
+      <li><i class="fas fa-map-marker-alt"></i>
+        <address>
+        Juna  &amp; Malakia, South Sudan, +211
+        </address>
+      </li>
+      <li><i class="fas fa-phone"></i>0921 967 834 </li>
+      <li><i class="far fa-envelope"></i> info@hotelbooking.com</li>
+    </ul>
+    <ul class="faico clear">
+      <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+      <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+      <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">important dates</h6>
+    <ul class="nospace linklist">
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Get your rooms at affordable prices and good discounts.</a></p>
+          <time class="block font-xs" datetime="2045-04-06">Wednesdays</time>
+        </article>
+      </li>
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Visit our offices and get rooms at cheaper prices.</a></p>
+          <time class="block font-xs" datetime="2045-04-05">Fridays</time>
+        </article>
+      </li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our services</h6>
+    <ul class="nospace linklist">
+      <li><a href="#">Book Rooms Online</a></li>
+      <li><a href="#">questions & Answers</a></li>
+      <li><a href="#">Visit us</a></li>
+      <li><a href="#">Customer care</a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our pages</h6>
+    <ul class="nospace clear latestimg">
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin2.jpeg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier4.jpg' %}" alt=""></a></li>
+    </ul>
+  </div>
+  
+  
+  
+  </footer>
+  </div>
+  
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

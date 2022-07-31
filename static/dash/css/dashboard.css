@@ -1,0 +1,29 @@
+#side-bar{
+    height: 450px;
+    width: 20%;
+    background: linear-gradient(45deg, hsl(336, 10%, 90%), #ef4a4a);
+}
+
+
+#main-side{
+    height: 450px;
+    width: 80%;
+    background-color:  white;
+    
+}
+
+#main-side table thead th{
+    color: black;
+}
+
+#top-bar{
+    background: linear-gradient(45deg, hsl(336, 10%, 90%), #ef4a4a);
+}
+
+#items a i{
+    padding: 20px 20px 20px 20px ;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 15px;
+    
+}

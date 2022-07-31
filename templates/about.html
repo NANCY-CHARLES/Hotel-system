@@ -1,0 +1,271 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<!-- ################################################## PRELOADER START ###########################################-->
+<!-- ################################################## PRELOADER START ###########################################-->    
+
+<div id="preloader">
+  <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</div>  
+
+<!-- ################################################ PRELOADER END HERE #########################################-->
+<!-- ################################################ PRELOADER END HERE #########################################-->
+
+
+
+
+<!-- ################################################ HEADER START HERE ##########################################-->
+<!-- ################################################ HEADER START HERE ##########################################-->    
+
+<header class="">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html"><h2>Bismark <em>Hotel</em></h2></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'index' %}">Home
+              
+              </a>
+            </li> 
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rooms' %}">Book Rooms</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              <span class="sr-only">(current)</span>
+            </li>
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{user.first_name}}</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+
+            {% endif %}
+
+          </ul>
+        </div>
+
+
+    </div>
+  </nav>
+</header>
+
+<!-- ################################################### HEADER END HERE ######################################-->
+<!-- ################################################### HEADER END HERE ######################################-->
+
+<!-- ################################################### ROOM HEADING START HERE #####################################################-->
+<!-- ################################################### ROOM HEADING START HERE #####################################################-->
+
+<div class="room-heading rooms-heading header-text">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>Know Much!!</h4>
+          <h2>About Bismark Hotel</h2>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ################################################### ROOM HEADING ENDS ############################################################-->
+<!-- ################################################### ROOM HEADING ENDS ############################################################-->
+
+
+
+
+
+ <!-- ################################################### ABOUT US CONTENT STARTS HERE ############################################################-->
+<!-- ################################################### ABOUT US CONTENT STARTS HERE ############################################################-->
+
+<div class="best-features about-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Our Background</h2>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="product-item">
+          <a href="#"><img src="{% static 'photos/about/about5.jpg' %}" alt=""></a>
+          <div class="down-content">
+            <a href="#"><h4>When was it established</h4></a>
+            
+            <p>Bismark Hotel was founded in late 2000's which is 2022 by Itz Nancy Charles.<br>
+              It is established within South Sudan states because booking hotels hasn't been quite 
+              easy for people who are always heading there for different purposes.<br>
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="product-item">
+          <a href="#"><img src="{% static 'photos/logo3.jpg' %}" alt=""></a>
+          <div class="down-content">
+            <a href="#"><h4>What makse us different</h4></a>
+            
+            <p>  We allow people to book their rooms online NOT Manually & we offer our clients with the best services<br>
+              Our branding is unique. We offer cards all over for easy outreach to our loactions. Our logo defines who we really are.</p>
+        
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="product-item">
+          <a href="#"><img src="{% static 'photos/about/about4.jpg' %}" alt=""></a>
+          <div class="down-content">
+            <a href="#"><h4>Our Location</h4></a> 
+            
+          <p>The main office of bismark hotel is based in Juba-South Sudan.
+            We also have other branches in each of the states.<br>
+             To reachout to us, email us in our customer services or reach out to us in our social media platforms.<br>
+           </p>
+            
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+<!-- ################################################### ABOUT US CONTENT ENDS HERE ############################################################-->
+<!-- ################################################### ABOUT US CONTENT ENDS HERE ############################################################-->
+
+
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear" > 
+  
+  
+  
+  <div class="one_quarter first">
+    <h6 class="heading">Address</h6>
+    <ul class="nospace linklist contact btmspace-30">
+      <li><i class="fas fa-map-marker-alt"></i>
+        <address>
+        Juna  &amp; Malakia, South Sudan, +211
+        </address>
+      </li>
+      <li><i class="fas fa-phone"></i>0921 967 834 </li>
+      <li><i class="far fa-envelope"></i> info@hotelbooking.com</li>
+    </ul>
+    <ul class="faico clear">
+      <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+      <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+      <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">important dates</h6>
+    <ul class="nospace linklist">
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Get your rooms at affordable prices and good discounts.</a></p>
+          <time class="block font-xs" datetime="2045-04-06">Wednesdays</time>
+        </article>
+      </li>
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Visit our offices and get rooms at cheaper prices.</a></p>
+          <time class="block font-xs" datetime="2045-04-05">Fridays</time>
+        </article>
+      </li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our services</h6>
+    <ul class="nospace linklist">
+      <li><a href="#">Book Rooms Online</a></li>
+      <li><a href="#">questions & Answers</a></li>
+      <li><a href="#">Visit us</a></li>
+      <li><a href="#">Customer care</a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our pages</h6>
+    <ul class="nospace clear latestimg">
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin2.jpeg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier4.jpg' %}" alt=""></a></li>
+    </ul>
+  </div>
+  
+  
+  
+  </footer>
+  </div>
+  
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  
+
+
+
+{% endblock %}

@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    
+    <title>Hotel Booking</title>
+
+    
+<!-- ###################################### footer css start ######################################################## -->
+
+      <link href="{% static 'footer/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+      <link href="{% static 'footer/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+      <link rel="stylesheet" href="{% static 'footer/css/bootstrap.css' %}" type="text/css" media="all">
+      <link rel="stylesheet" href="{% static 'footer/css/bootstrap.min.css' %}" type="text/css" media="all">
+      
+
+<!-- ###################################### end footer css ########################################################### -->
+
+
+<!-- ###################################### better css start ######################################################### -->
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'better/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'better/css/swiper.min.css' %}">
+
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'better/css/style.css' %}">
+
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'better/css/responsive.css' %}">
+
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'better/images/fevicon.png' %}" type="image/gif" />
+
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'better/css/jquery.mCustomScrollbar.min.css' %}">
+
+      
+<!-- ###################################### end better css ########################################################## -->
+
+<!-- ############################################## main page css ################################################ -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'dash/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'dash/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'dash/css/bootstrap.min.css' %}">
+    
+<!-- ############################################## end main page css ############################################ -->    
+
+  </head>
+
+
+
+
+  <body>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- ################################################### footer javascript start ######################################################-->
+    <!-- JAVASCRIPTS -->
+    <script src="{% static 'footer/layout/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'footer/layout/scripts/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'footer/layout/scripts/jquery.mobilemenu.js' %}"></script>
+    <script src="{% static 'footer/js/bootstrap.js' %}"></script>
+    <script src="{% static 'footer/js/bootstrap.min.js' %}"></script>
+    
+    <script src="{% static 'footer/layout/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'footer/layout/scripts/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'footer/layout/scripts/jquery.mobilemenu.js' %}"></script>
+    <!-- ################################################### end footer javascript ################################################# -->
+    
+    
+    
+    
+    <!-- ################################################### better javascript start ############################################### -->
+    <!-- Javascript files-->
+      <script src="{% static 'better/js/jquery.min.js' %}"></script>
+      <script src="{% static 'better/js/popper.min.js' %}"></script>
+      <script src="{% static 'better/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'better/js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'better/js/plugin.js' %}"></script>
+    
+      <!-- sidebar -->
+      <script src="{% static 'better/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'better/js/custom.js' %}"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    
+      <script>
+         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+         // Australia.
+         function initMap() {
+             var map = new google.maps.Map(document.getElementById('map'), {
+                 zoom: 11,
+                 center: {
+                     lat: 40.645037,
+                     lng: -73.880224
+                 },
+             });
+         
+             var image = "{% static 'better/images/maps-and-flags.png' %}";
+             var beachMarker = new google.maps.Marker({
+                 position: {
+                     lat: 40.645037,
+                     lng: -73.880224
+                 },
+                 map: map,
+                 icon: image
+             });
+         }
+      </script>
+      <!-- google map js -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+      <!-- end google map js -->
+    <!-- ##################################################### end better javascript ############################################### -->
+    
+    
+    
+    <!-- ##################################################### main page javascript ################################################ -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+    
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+    
+    
+    
+    <!-- ##################################################### end main page javascript ############################################### -->    
+    
+    
+    </html>
+    

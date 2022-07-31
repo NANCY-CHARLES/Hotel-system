@@ -1,0 +1,340 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<!-- ################################################## PRELOADER START ###########################################-->
+<!-- ################################################## PRELOADER START ###########################################-->    
+
+<div id="preloader">
+  <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</div>  
+
+<!-- ################################################ PRELOADER END HERE #########################################-->
+<!-- ################################################ PRELOADER END HERE #########################################-->
+
+
+
+
+
+<!-- ################################################ HEADER START HERE ##########################################-->
+<!-- ################################################ HEADER START HERE ##########################################-->    
+
+<header class="">
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html"><h2>Bismark <em>Hotel</em></h2></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li> 
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'rooms' %}">Book Rooms</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+
+            {% if user.is_authenticated %} 
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{user.first_name}}</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+
+            {% endif %}
+
+
+          </ul>
+        </div>
+
+
+    </div>
+  </nav>
+</header>
+
+<!-- ################################################### HEADER END HERE ######################################-->
+<!-- ################################################### HEADER END HERE ######################################-->
+
+
+
+
+
+
+<!-- ################################################### REGISTRATION STRAT HERE ###################################-->
+<!-- ################################################### REGISTRATION START HERE ###################################-->   
+
+    <div class="bookroom-heading bookrooms-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+            	<h2>Book Your Room Now!</h2>
+	    		<h6>The best prices you will ever find</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <div id="bookroom-div">
+    
+      <div class="container" >
+
+          <form action="/saveroom/{{user.id}}" method="post">
+            {% csrf_token %}
+
+      	    <div class="row g-3 align-items-center">
+
+      		      <div class="col-md-6">
+      	                <label for="first_name">First Name</label>
+      	                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name" value="{{user.first_name}}">
+      	          </div>
+
+      	          <div class="col-md-6">
+      	                <label for="last_name">Last Name</label>
+      	                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last name" value="{{user.last_name}}">
+      	          </div>
+
+              </div><br>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" value="{{user.email}}">
+                <small id="email" class="form-text text-muted">We'll never share your email with anyone else</small>
+              </div>
+
+              <div>
+                <label for="phone">Mobile Phone</label>
+                <input type="number" class="form-control" name="mobile_phone" id="phone" placeholder="Enter your contact">
+              </div><br>
+
+              <div>
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" id="address" placeholder="Enter your address">
+              </div><br>              
+
+
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="password">Room Type</label>
+                  <select class="form-select" style="width: 50%;" id="room_type" name="room_type" value="">
+                    <option selected>choose</option>
+                    <option value="single">Single</option>
+                    <option value="twin">Twin</option>
+                    <option value="premier">Premier</option>
+                  </select>
+                </div>
+  
+
+      	      <div class="col">
+      	          <label for="password">State</label>
+      	          <select class="form-select" style="width: 50%;" value="" id="state" name="state">
+      	          	<option selected>choose state</option>
+      	          	<option value="Northern Bahr-El Ghazel">Northern Bahr-El Ghazel</option>
+      	          	<option value="Western Bahr-El Ghazel">Western Bahr-El Ghazel</option>
+      	          	<option value="Warrap State">Warrap State</option>
+      	          	<option value="Western Equatorial">Western Equatorial</option>
+      	          	<option value="Central Equatorial">Central Equatorial</option>
+      	          	<option value="Eastern Equatorial">Eastern Equatorial</option>
+      	          	<option value="Lakes State">Lakes State</option>
+      	          	<option value="Upper Nile">Upper Nile</option>
+      	          	<option value="Unity State">Unity State</option>
+      	          	<option value="Jongeli">Jonglei</option>
+      	          </select>
+      	      </div>
+
+                </div><br>
+              
+              <div class="row g-3">
+
+                  <div class="col-md-6">
+                       <label for="check_in_date">Check in date</label>
+                       <input type="date" class="form-control" name="check_in_date" id="check_in_date" value="">
+                  </div>
+
+                  <div class="col-md-6">
+                       <label for="check_out_date">Check out date</label>
+                       <input type="date" class="form-control" name="check_out_date" id="check_out_date" value="">
+                  </div>
+
+              </div><br>
+
+              <div class="row g-3">
+
+                <div class="col-md-6">
+                     <label for="guests" >Number of Guests</label>
+                     <select class="form-select" style="width: 50%;" id="number_of_guests" name="number_of_guests" value="">
+                      <option selected value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                </div>
+  
+                <div class="col-md-6">
+                      <label for="rooms" >Number of Rooms</label>
+                      <select class="form-select" style="width: 50%;" id="number_of_rooms" name="number_of_rooms" value="">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                </div>
+  
+              </div><br>
+
+              <div class="row g-3 align-items-center">
+              	<div class="col-auto">
+              		<label for="price" class="col-form-label">Price</label>
+              	</div>
+              	<div class="col-auto">
+              		<input placeholder="{{room.price}}" type="text" name="price" id="price" value={{room.price}} >
+              	</div> 
+              </div><br>
+
+              <button type="submit" class="btn" style="width: 100%; background-color: brown; color: white;">Proceed To Payments </button>
+
+          </form>
+          
+      </div>
+
+      </div>
+
+
+
+
+
+<!-- ################################################### REGISTRATION END HERE #######################################-->
+<!-- ################################################### REGISTRATION END HERE #######################################-->    
+
+
+
+
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+<!-- ################################################## FOOTER START HERE ############################################################# -->
+
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear" > 
+  
+  
+  
+  <div class="one_quarter first">
+    <h6 class="heading">Address</h6>
+    <ul class="nospace linklist contact btmspace-30">
+      <li><i class="fas fa-map-marker-alt"></i>
+        <address>
+        Juna  &amp; Malakia, South Sudan, +211
+        </address>
+      </li>
+      <li><i class="fas fa-phone"></i>0921 967 834 </li>
+      <li><i class="far fa-envelope"></i> info@hotelbooking.com</li>
+    </ul>
+    <ul class="faico clear">
+      <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+      <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+      <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+      <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+      <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">important dates</h6>
+    <ul class="nospace linklist">
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Get your rooms at affordable prices and good discounts.</a></p>
+          <time class="block font-xs" datetime="2045-04-06">Wednesdays</time>
+        </article>
+      </li>
+      <li>
+        <article>
+          <p class="nospace btmspace-10"><a href="#" >Visit our offices and get rooms at cheaper prices.</a></p>
+          <time class="block font-xs" datetime="2045-04-05">Fridays</time>
+        </article>
+      </li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our services</h6>
+    <ul class="nospace linklist">
+      <li><a href="#">Book Rooms Online</a></li>
+      <li><a href="#">questions & Answers</a></li>
+      <li><a href="#">Visit us</a></li>
+      <li><a href="#">Customer care</a></li>
+    </ul>
+  </div>
+  
+  
+  <div class="one_quarter">
+    <h6 class="heading">our pages</h6>
+    <ul class="nospace clear latestimg">
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/single/single3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin2.jpeg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/twin/twin3.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier1.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier2.jpg' %}" alt=""></a></li>
+      <li><a class="imgover" href="#"><img src="{% static 'photos/premier/premier4.jpg' %}" alt=""></a></li>
+    </ul>
+  </div>
+  
+  
+  
+  </footer>
+  </div>
+  
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  <!-- ################################################### FOOTER ENDS HERE #############################################################-->
+  
+
+
+  
+{% endblock %}

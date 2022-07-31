@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+        <div class="container">
+            
+            <div class="row" id="top-bar">
+              <div class="col"><h1>BISMARK</h1></div>
+              <div class="col"><h1>Bookings</h1></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4" id="side-bar">
+                    <div class="list-group" id="items">
+                        <a href="#" class="list-group-item list-group-item-action"> <i class="fas fa-th-large"></i>DASHBOARD</a>
+                        <a href="{% url 'users' %}" class="list-group-item list-group-item-action"><i class="fas fa-user"></i>Users</a>
+                        <a href="{% url 'bookings' %}" class="list-group-item list-group-item-action active" aria-current="true"><i class="fas fa-book"></i>Bookings</a>
+                        <a href="{% url 'room' %}" class="list-group-item list-group-item-action"><i class="fas fa-building"></i>Rooms</a>
+                        <a href="{% url 'messages' %}" class="list-group-item list-group-item-action"><i class="fas fa-comment"></i>Messages</a>
+                        <a href="{% url 'index' %}" class="list-group-item list-group-item-action"><i class="fas fa-th-large"></i> HOME</a>
+                      </div>
+                </div>
+                <div class="col-sm-8" id="main-side">
+                    <table class="table table-hover">
+
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">FirstName</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">MobilePhone</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">RoomType</th>
+                            <th scope="col">State</th>
+                            <th scope="col">CheckIn</th>
+                            <th scope="col">CheckOut</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>0799061777</td>
+                            <td>Nairobi</td>
+                            <td>Premier</td>
+                            <td>Equatoria State</td>
+                            <td>24/6/2022</td>
+                            <td>30/7/2022</td>
+                            <td>USD 100</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
+                            
+                          </tr>
+
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>0799061888</td>
+                            <td>Nairobi</td>
+                            <td>Single</td>
+                            <td>Bar-el-Ghazal State</td>
+                            <td>24/1/2022</td>
+                            <td>30/2/2022</td>
+                            <td>USD 100</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
+                            
+                            
+                          </tr>
+
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>Darlene</td>
+                            <td>0799061999</td>
+                            <td>Nairobi</td>
+                            <td>Twin</td>
+                            <td>Equatoria State</td>
+                            <td>24/3/2022</td>
+                            <td>30/3/2022</td>
+                            <td>USD 100</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+
+ {% endblock %}
